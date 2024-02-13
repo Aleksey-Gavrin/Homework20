@@ -7,8 +7,8 @@ import java.util.List;
 public class CartService {
 
     public Cart cart;
-    public CartService() {
-        this.cart = new Cart();
+    public CartService(Cart cart) {
+        this.cart = cart;
     }
     public void addProductsToCart(List<Integer> numbers) {
         for (Integer num: numbers) {
