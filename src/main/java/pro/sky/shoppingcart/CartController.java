@@ -27,10 +27,8 @@ public class CartController {
         return "Выбранные товары добавлены в корзину";
     }
     @GetMapping(path = "/get")
-    public String getProducts() {
-        if(!service.cart.productsList.isEmpty()) {
-            return service.cart.productsList.toString();
-        }
-     return "Корзина пуста.";
+    public List<String> getProducts() {
+        return service.getCart();
     }
+
 }
