@@ -1,5 +1,6 @@
 package pro.sky.shoppingcart;
 
+import jakarta.annotation.PostConstruct;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,9 +29,10 @@ public class CartController {
     }
     @GetMapping(path = "/get")
     public String getProducts() {
-        if(!service.cart.productsList.isEmpty()) {
-            return service.cart.productsList.toString();
-        }
-     return "Корзина пуста.";
+       return service.getCart().getProductsList().toString();
+    }
+    @PostConstruct
+    public void showInfo() {
+        System.out.println("контроллер создан");
     }
 }
